@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, "SFMono-Regular",
+    Menlo, Consolas, "Liberation Mono", monospace;
+  background-color: #07130d;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Deep emerald gradient canvas with a soft upper-right glow */
+.app-canvas {
+  background-color: #07130d;
+  background-image:
+    radial-gradient(1100px 700px at 85% -12%, rgba(16, 185, 129, 0.14), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(5, 150, 105, 0.12), transparent 55%),
+    linear-gradient(180deg, #081712 0%, #050d09 100%);
+}
+
+/* Green-tinted glass panel surface */
+.panel-canvas {
+  background-image: linear-gradient(
+    160deg,
+    rgba(16, 185, 129, 0.04),
+    transparent 45%
+  );
+}
+
+/* Green-tinted terminal / code area */
+.terminal-canvas {
+  background-color: #05190f;
+  background-image:
+    linear-gradient(180deg, rgba(16, 185, 129, 0.05), transparent 40%),
+    linear-gradient(0deg, #040b07 0%, #06130d 100%);
+}
+
+input,
+textarea,
+select,
+.code-editor {
+  user-select: text;
+}
+
+/* Slim dark scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(16, 185, 129, 0.28) rgba(0, 0, 0, 0.35);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.18);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.55);
+}
+
+/* Range slider */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+  background: #10b981;
+  border: 2px solid #0b0f17;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.4), 0 0 10px rgba(16, 185, 129, 0.5);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 999px;
+  background: #10b981;
+  border: 2px solid #0b0f17;
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+}
+
+/* CodeMirror tweaks to match the design language */
+.cm-editor {
+  background: transparent !important;
+  font-size: 12px !important;
+}
+
+.cm-gutters {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.cm-focused {
+  outline: none !important;
+}

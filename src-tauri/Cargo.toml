@@ -1,0 +1,32 @@
+[package]
+name = "agamiz-mock-api"
+version = "0.1.0"
+description = "Agamiz Mock API — local desktop mock server & API prototyping tool"
+edition = "2021"
+
+[lib]
+name = "agamiz_mock_api_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+axum = { version = "0.7", features = ["ws"] }
+tokio = { version = "1", features = ["full"] }
+chrono = { version = "0.4", features = ["serde"] }
+fastrand = "2"
+local-ip-address = "0.6"
+regex = "1"
+uuid = { version = "1", features = ["v4"] }
+http = "1"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
